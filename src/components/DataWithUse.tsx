@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useState } from "react";
+import { use } from "react";
 import DataToManipulate from "./DataToManipulate";
 
 interface IDataWithUseProps {

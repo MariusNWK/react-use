@@ -1,5 +1,5 @@
-import Data from "@/Data";
-import DataWithUse from "@/DataWithUse";
+import Data from "@/components/Data";
+import DataWithUse from "@/components/DataWithUse";
 import { getData } from "@/utils/getData";
 import { Suspense } from "react";
 

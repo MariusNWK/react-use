@@ -22,6 +22,11 @@ export default function DataToManipulate(props: IDataToManipulateProps) {
       key={todo.id}
       className="px-4 py-2 text-white"
       onClick={onClick}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          onClick();
+        }
+      }}
       style={{ background: bgColor }}
     >
       {todo.title}

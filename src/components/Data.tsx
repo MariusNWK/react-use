@@ -1,5 +1,5 @@
 import DataToManipulate from "./DataToManipulate";
-import { getData } from "./utils/getData";
+import { getData } from "../utils/getData";
 
 export default async function Data() {
   const data = await getData();
