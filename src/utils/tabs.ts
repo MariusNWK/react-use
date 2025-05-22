@@ -11,4 +11,8 @@ export const tabs = [
     href: "/cache",
     title: "Cache",
   },
+  {
+    href: "/cache2",
+    title: "Cache2",
+  },
 ];
