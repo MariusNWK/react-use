@@ -24,14 +24,7 @@ export default async function Page() {
 					</p>
 				</div>
 			</div>
-			<Suspense
-				fallback={
-					<Loading
-						text="Chargement en cours..."
-						className="self-start px-4 py-2 border rounded"
-					/>
-				}
-			>
+			<Suspense fallback={<Loading text="Chargement en cours..." />}>
 				<DataWithUse dataPromise={dataPromise} />
 			</Suspense>
 		</div>

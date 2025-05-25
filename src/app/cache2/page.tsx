@@ -1,14 +1,12 @@
 import DataWithReactCache from "@/components/DataWithReactCache";
 import Header from "@/components/Header";
 import { Loading } from "@/components/Loading";
-import NewDataWithReactCache from "@/components/NewDataWithUnstableCache";
 import { Suspense } from "react";
-import { getTodosWithReactCache } from "./actions";
 
 export default async function Page() {
 	return (
 		<div className="flex flex-col gap-2 bg-neutral-300 p-4 rounded">
-			<Header currentHref="/cache" />
+			<Header currentHref="/cache2" />
 			<div className="flex flex-col gap-2">
 				<h2 className="text-lg font-semibold">Pourquoi utiliser cache ?</h2>
 				<div className="flex flex-col gap-1">
@@ -42,15 +40,6 @@ export default async function Page() {
 				<Suspense fallback={<Loading text="Chargement du composant 2" />}>
 					<DataWithReactCache title="Cache2" bgColor="#8c1900" />
 				</Suspense>
-				<p className="my-4">
-					❌ ne fonctionne que pendant le même cycle de rendu sur le serveur.
-					Les données mises en cache ne persistent pas entre les composants
-					serveur et client, ni entre les différentes requêtes côté client. Les
-					données vont donc à nouveau avoir un temps de chargement quand on
-					clique sur le bouton en dessous alors que j'utilise la même fonction
-					qu'au dessus
-				</p>
-				<NewDataWithReactCache onFetchData={getTodosWithReactCache} />
 			</div>
 		</div>
 	);

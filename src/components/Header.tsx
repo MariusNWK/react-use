@@ -15,6 +15,10 @@ const tabs = [
 		title: "Cache",
 	},
 	{
+		href: "/cache2",
+		title: "Cache2",
+	},
+	{
 		href: "/unstable-cache",
 		title: "Unstable Cache",
 	},
