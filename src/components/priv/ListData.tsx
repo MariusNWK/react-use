@@ -16,7 +16,10 @@ export default function ListData(props: IListDataProps) {
 			>
 				{props.data.map((item) => (
 					<li key={item.id} className="px-2 py-1">
-						{item.title}
+						<div>{item.title}</div>
+						{item.date && (
+							<div className="text-xs text-neutral-200">Date: {item.date}</div>
+						)}
 					</li>
 				))}
 			</ul>

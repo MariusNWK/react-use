@@ -3,7 +3,7 @@
 import { use, useState } from "react";
 
 interface IDataWithUseProps {
-	dataPromise: Promise<{ id: number; title: string }[]>;
+	dataPromise: Promise<{ id: number; title: string; date?: string }[]>;
 }
 
 const BORDEAUX = "#8c1900";
@@ -38,7 +38,10 @@ export default function DataWithUse(props: IDataWithUseProps) {
 						}}
 						style={{ background: bgColor }}
 					>
-						{todo.title}
+						<div>{todo.title}</div>
+						{todo.date && (
+							<div className="text-xs text-neutral-200">Date: {todo.date}</div>
+						)}
 					</li>
 				))}
 			</ul>

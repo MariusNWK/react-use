@@ -1,32 +1,20 @@
-import type { DataFetchingOptions, Todo } from "@/types";
+import type { Todo } from "@/types";
+import { faker } from "@faker-js/faker";
 
-const API_URL = "https://jsonplaceholder.typicode.com/todos";
-
-export async function fetchTodos(
-	options: DataFetchingOptions = {},
-): Promise<Todo[]> {
-	console.log("🔄 Fetching data from API...");
-	const res = await fetch(API_URL, {
-		next: {
-			revalidate: options.revalidate,
-			tags: options.tags,
-		},
-		cache: options.cache,
-	});
+export async function fetchTodos(): Promise<Todo[]> {
+	const now = new Date();
+	const nowString = now.toLocaleString();
+	const fakeTodos: Todo[] = Array.from({ length: 5 }).map((_, i) => ({
+		id: i + 1,
+		title: `${faker.lorem.sentence(3)} (généré à: ${nowString})`,
+		completed: faker.datatype.boolean(),
+		userId: faker.number.int({ min: 1, max: 3 }),
+		date: nowString,
+	}));
 
 	await new Promise((resolve) => setTimeout(resolve, 2000));
 
-	if (!res.ok) {
-		throw new Error("Failed to fetch todos");
-	}
-
-	return res.json();
+	return fakeTodos;
 }
 
-// No cache (for fresh data)
-export const getTodosWithoutCache = (options: DataFetchingOptions = {}) =>
-	fetchTodos({ ...options, cache: "no-store" });
-
-// Default cache (for static data)
-export const getTodosWithDefaultCache = (options: DataFetchingOptions = {}) =>
-	fetchTodos({ ...options, cache: "force-cache" });
+export const getTodosWithoutCache = () => fetchTodos();

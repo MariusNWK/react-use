@@ -22,6 +22,18 @@ const tabs = [
 		href: "/unstable-cache",
 		title: "Unstable Cache",
 	},
+	{
+		href: "/unstable-cache-2",
+		title: "Unstable Cache 2",
+	},
+	{
+		href: "/revalidate",
+		title: "Revalidate (timer)",
+	},
+	{
+		href: "/tag-cache",
+		title: "Tag Cache",
+	},
 ];
 
 interface IHeaderProps {
