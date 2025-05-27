@@ -1,6 +1,7 @@
 import DataWithRevalidate from "@/components/DataWithRevalidate";
 import Header from "@/components/Header";
 import { Loading } from "@/components/Loading";
+import Timer from "@/components/Timer";
 import { Suspense } from "react";
 
 export default async function Page() {
@@ -17,6 +18,7 @@ export default async function Page() {
 					• La date affichée reste la même tant que le cache n'est pas expiré.
 					Après expiration, une nouvelle date apparaît.
 				</p>
+				<Timer />
 			</div>
 			<Suspense fallback={<Loading text="Chargement en cours..." />}>
 				<DataWithRevalidate />

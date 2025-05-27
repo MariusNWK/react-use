@@ -3,10 +3,14 @@ import { faker } from "@faker-js/faker";
 
 export async function fetchTodos(): Promise<Todo[]> {
 	const now = new Date();
-	const nowString = now.toLocaleString();
+	const nowString = now.toLocaleString("fr-FR", {
+		dateStyle: "full",
+		timeStyle: "medium",
+	});
+	const uniqueId = faker.string.uuid().slice(0, 8);
 	const fakeTodos: Todo[] = Array.from({ length: 5 }).map((_, i) => ({
 		id: i + 1,
-		title: `${faker.lorem.sentence(3)} (généré à: ${nowString})`,
+		title: `${faker.lorem.sentence(3)} (id: ${uniqueId}, généré à: ${nowString})`,
 		completed: faker.datatype.boolean(),
 		userId: faker.number.int({ min: 1, max: 3 }),
 		date: nowString,
